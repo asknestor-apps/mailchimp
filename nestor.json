@@ -1,0 +1,9 @@
+{
+  "name": "Mailchimp",
+  "permalink": "mailchimp",
+  "description": "Get Mailchimp stats and subscribe/unsubscribe members from Nestor",
+  "environment_keys": {
+    "NESTOR_MAILCHIMP_API_KEY": true,
+    "NESTOR_MAILCHIMP_LIST_ID" : true
+  }
+}

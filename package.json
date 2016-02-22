@@ -1,6 +1,6 @@
 {
-  "name": "hubot-mailchimp",
-  "description": "Mailchimp hubot script as an NPM package",
+  "name": "nestor-mailchimp",
+  "description": "Control Mailchimp from Nestor",
   "version": "1.2.1",
   "author": {
     "name": "Mathieu BAUMGARTNER",
@@ -10,21 +10,23 @@
   "keywords": [
     "hubot",
     "hubot-scripts",
+    "nestorbot",
+    "nestor",
     "mailchimp"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-mailchimp.git"
+    "url": "git://github.com/asknestor-apps/mailchimp.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-mailchimp/issues"
+    "url": "https://github.com/asknestor-apps/mailchimp/issues"
   },
   "dependencies": {
-    "coffee-script": "~1.6",
+    "nestorbot": "0.14.0",
     "mailchimp": "1.1.0"
   },
-  "main": "index.coffee",
-  "readme": "hubot-mailchimp\n===============\n\nMailchimp hubot script as an NPM package\n",
+  "main": "index.js",
+  "readme": "nestor-mailchimp\n===============\n\nMailchimp nestor script as an NPM package\n",
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/hubot-scripts/hubot-mailchimp"
+  "homepage": "https://github.com/asknestor-apps/mailchimp"
 }
