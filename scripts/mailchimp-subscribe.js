@@ -80,7 +80,6 @@ var latestCampaign = function(message, done) {
   }, function(error, data) {
     var campaign_name, cid;
     if (error) {
-      console.log("ruh roh 1");
       message.send("Uh oh, something went wrong: " + error.message, done);
     } else {
       cid = data['data'][0]['id'];
@@ -92,7 +91,31 @@ var latestCampaign = function(message, done) {
         if (error) {
           message.send("Uh oh, something went wrong while fetching stats for '"  + campaign_name + "': " + error.message, done);
         } else {
-          message.send("Last campaign \"" + campaign_name + "\" was sent to " + data['emails_sent'] + " subscribers (" + data['unique_opens'] + " opened, " + data['unique_clicks'] + " clicked, " + data['unsubscribes'] + " unsubscribed)", done);
+          message.send(new message.newRichResponse({
+            title: campaign_name,
+            fields: [
+              {
+                "title": "Sent To",
+                "value": data['emails_sent'] + " subscribers",
+                "short": true
+              },
+              {
+                "title": "Unique Opens",
+                "value": data['unique_opens'],
+                "short": true
+              },
+              {
+                "title": "Unique Clicks",
+                "value": data['unique_clicks'],
+                "short": true
+              },
+              {
+                "title": "Unsubscribes",
+                "value": data['unsubscribes'],
+                "short": true
+              }
+            ]
+          }), done);
         }
       });
     }
@@ -108,7 +131,7 @@ module.exports = function(robot) {
     unsubscribeFromList(message, done);
   });
 
-  robot.respond(/\bmailchimp/i, function(message, done) {
+  robot.respond(/\bmailchimp latest/i, function(message, done) {
     latestCampaign(message, done);
   });
 };
