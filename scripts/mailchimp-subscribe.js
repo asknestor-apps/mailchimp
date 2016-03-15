@@ -123,15 +123,15 @@ var latestCampaign = function(message, done) {
 };
 
 module.exports = function(robot) {
-  robot.respond(/\bsubscribe (.+@.+)/i, function(message, done) {
+  robot.respond(/\bmailchimp subscribe (.+@.+)/i, { suggestions: ["mailchimp subscribe <email>"] }, function(message, done) {
     subscribeToList(message, done);
   });
 
-  robot.respond(/\bunsubscribe (.+@.+)/i, function(message, done) {
+  robot.respond(/\bmailchimp unsubscribe (.+@.+)/i, { suggestions: ["mailchimp unsubscribe <email>"] }, function(message, done) {
     unsubscribeFromList(message, done);
   });
 
-  robot.respond(/\bmailchimp latest/i, function(message, done) {
+  robot.respond(/\bmailchimp latest/i, { suggestions: ["mailchimp latest"] }, function(message, done) {
     latestCampaign(message, done);
   });
 };
